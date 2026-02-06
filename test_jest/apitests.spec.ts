@@ -1,7 +1,8 @@
 jest.setTimeout(20000);
 
 import { ApiController } from "../helper/api_controller";
-import { apiUrl, apiMasterKey } from "../config/constants";
+import { apiUrl } from "../config/constants";
+import { apiMasterKey } from "../config/key";
 
 describe("Test bin api", () => {
   describe("create bin", () => {
