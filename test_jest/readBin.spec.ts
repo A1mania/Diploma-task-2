@@ -48,9 +48,11 @@ describe("read bin", () => {
 
     id = res.body.metadata.id;
 
-    const resGet = await bin
-      .getBinWithMasterKey(id as string, apiMasterKey, true);
-      
+    const resGet = await bin.getBinWithMasterKey(
+      id as string,
+      apiMasterKey,
+      true,
+    );
 
     expect(resGet.status).toEqual(200);
     expect(resGet.body).toMatchObject({
@@ -65,8 +67,7 @@ describe("read bin", () => {
 
   it("read bin with invalid id", async () => {
     try {
-      const resGet = await bin
-        .getBinWithMasterKey("123", apiMasterKey);
+      const resGet = await bin.getBinWithMasterKey("123", apiMasterKey);
 
       throw new Error("Request should have failed");
     } catch (err: any) {
@@ -77,8 +78,7 @@ describe("read bin", () => {
 
   it("read bin with no id", async () => {
     try {
-      const resGet = await bin
-        .getBinWithMasterKey("", apiMasterKey);
+      const resGet = await bin.getBinWithMasterKey("", apiMasterKey);
       throw new Error("Request should have failed");
     } catch (err: any) {
       expect(err.status).toBe(404);
@@ -88,8 +88,10 @@ describe("read bin", () => {
 
   it("read bin with unexisting id", async () => {
     try {
-      const resGet = await bin
-        .getBinWithMasterKey("6985b9e043b1c97be969c048", apiMasterKey);
+      const resGet = await bin.getBinWithMasterKey(
+        "6985b9e043b1c97be969c048",
+        apiMasterKey,
+      );
       throw new Error("Request should have failed");
     } catch (err: any) {
       expect(err.status).toBe(404);

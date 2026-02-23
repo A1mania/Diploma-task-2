@@ -28,8 +28,7 @@ describe("delete bin", () => {
 
   it("delete bin with invalid id", async () => {
     try {
-      const deleteRes = await bin
-        .deleteBinWithMasterKey("123", apiMasterKey);
+      const deleteRes = await bin.deleteBinWithMasterKey("123", apiMasterKey);
 
       throw new Error("Request should have failed");
     } catch (err: any) {
@@ -40,8 +39,7 @@ describe("delete bin", () => {
 
   it("delete bin with no id", async () => {
     try {
-      const deleteRes = await bin
-        .deleteBinWithMasterKey("", apiMasterKey);
+      const deleteRes = await bin.deleteBinWithMasterKey("", apiMasterKey);
 
       throw new Error("Request should have failed");
     } catch (err: any) {
@@ -52,8 +50,10 @@ describe("delete bin", () => {
 
   it("delete bin with unexisting id", async () => {
     try {
-      const deleteRes = await bin
-        .deleteBinWithMasterKey("6985b9e043b1c97be969c048", apiMasterKey);
+      const deleteRes = await bin.deleteBinWithMasterKey(
+        "6985b9e043b1c97be969c048",
+        apiMasterKey,
+      );
 
       throw new Error("Request should have failed");
     } catch (err: any) {

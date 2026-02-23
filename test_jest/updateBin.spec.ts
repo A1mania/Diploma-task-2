@@ -10,14 +10,14 @@ describe("update bin", () => {
 
   afterEach(async () => {
     if (id) {
-    try {
-      await bin.deleteBin(id).set("X-Master-Key", apiMasterKey);
-    } catch (error) {
-      console.warn(`Failed to delete bin ${id}:`, error);
-    } finally {
-      id = undefined;
+      try {
+        await bin.deleteBin(id).set("X-Master-Key", apiMasterKey);
+      } catch (error) {
+        console.warn(`Failed to delete bin ${id}:`, error);
+      } finally {
+        id = undefined;
+      }
     }
-  }
   });
 
   it("update bin successfully", async () => {

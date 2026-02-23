@@ -37,11 +37,9 @@ export class ApiController {
     const req = this.postBin()
       .set("Content-Type", "application/json")
       .set("X-Master-Key", apiMasterKey);
-
     if (binName) {
       req.set("X-Bin-Name", binName);
     }
-
     return req;
   }
 
@@ -55,7 +53,11 @@ export class ApiController {
     return this.deleteBin(id).set("X-Master-Key", apiMasterKey);
   }
 
-  getBinWithMasterKey(id: string, apiMasterKey: string, latest: boolean = false) {
+  getBinWithMasterKey(
+    id: string,
+    apiMasterKey: string,
+    latest: boolean = false,
+  ) {
     return this.getSingleBin(id).set("X-Master-Key", apiMasterKey);
   }
 }
